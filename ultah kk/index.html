@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Met Ultah AWOKAWOKAWOK</title>
+  <style>
+    body{
+      margin:0;
+      font-family: Arial, sans-serif;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:linear-gradient(135deg,#ffd6f9,#d6faff);
+      overflow:hidden;
+    }
+    .card{
+      width:90%;
+      max-width:850px;
+      border-radius:20px;
+      background:#fff8;
+      box-shadow:0 8px 28px rgba(0,0,0,0.2);
+      display:grid;
+      grid-template-columns: 1fr 300px;
+      overflow:hidden;
+    }
+    .left{padding:2rem}
+    h1{margin:0;color:#d13e76;font-size:2rem}
+    .message{margin-top:1rem;font-size:1.1rem;line-height:1.5}
+    .btn{margin-top:1.2rem;padding:.7rem 1.2rem;border:0;border-radius:10px;
+      background:#d13e76;color:white;cursor:pointer;font-weight:bold}
+    .right{display:flex;align-items:center;justify-content:center;background:#fff2}
+    .photo-frame{
+      width:260px;height:260px;border:2px dashed #ccc;
+      display:flex;align-items:center;justify-content:center;
+      color:#aaa;font-style:italic;border-radius:12px;background:white
+    }
+    /* confetti */
+    .confetti i{
+      position:absolute;width:10px;height:16px;opacity:.9;
+      animation:fall linear infinite;
+    }
+    @keyframes fall{
+      0%{transform:translateY(-20vh) rotate(0deg);}
+      100%{transform:translateY(110vh) rotate(720deg);}
+    }
+    .foto{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #e63946;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="left">
+      <h1>Happy 264 Month!! 🎉</h1>
+      <p class="message">
+        Met ultah kakakkk, doa terbaik dari adik loeh yang manis n flawless dan dari keluarga selalu menyertai. Semoga bahagia di setiap bulan dan tahunnya.✨  *Ps Semoga lancar skripsiannya
+      </p>
+      <button class="btn" id="toggleMusic">▶️ Putar Musik</button>
+    </div>
+    <div class="right">
+      <div class="photo-frame">
+        <img src="kk ultah.jpg" class="foto">
+      </div>
+    </div>
+  </div>
+
+  <div class="confetti" id="confetti"></div>
+
+  <!-- Musik latar (ganti "lagu.mp3" dengan file musikmu) -->
+  <audio id="bgMusic" loop>
+    <source src="ytmp3free.cc_selamat-ulang-tahun-youtubemp3free.org.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    // tombol play/pause musik
+    const music = document.getElementById("bgMusic");
+    const btn = document.getElementById("toggleMusic");
+    let isPlaying = false;
+
+    btn.addEventListener("click",()=>{
+      if(!isPlaying){
+        music.play();
+        btn.textContent = "⏸️ Hentikan Musik";
+      }else{
+        music.pause();
+        btn.textContent = "▶️ Putar Musik";
+      }
+      isPlaying = !isPlaying;
+    });
+
+    // confetti generator
+    const confetti = document.getElementById("confetti");
+    const colors=["#ff6b6b","#ffd166","#6bf2c1","#7b9cff","#d87bff"];
+    for(let i=0;i<50;i++){
+      const el=document.createElement("i");
+      el.style.left=(Math.random()*100)+"%";
+      el.style.top=(-Math.random()*40)+"vh";
+      el.style.width=(6+Math.random()*6)+"px";
+      el.style.height=(8+Math.random()*12)+"px";
+      el.style.background=colors[Math.floor(Math.random()*colors.length)];
+      el.style.animationDuration=(3+Math.random()*3)+"s";
+      el.style.animationDelay=(Math.random()*2)+"s";
+      confetti.appendChild(el);
+    }
+  </script>
+</body>
+</html>
